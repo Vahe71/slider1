@@ -1,0 +1,71 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: 0;
+    border: 0;
+    user-select: none;
+}
+
+
+.slider {
+    height: 100vh;
+    position: relative;
+    background: url(img/1.png) no-repeat center / cover;
+    transition: 0.6s;
+}
+.slider .btn {
+    position: absolute;
+    top: 50%;
+    font-size: 5em;
+    padding: 0 40px 10px;
+    cursor: pointer;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+}
+@keyframes previous { to {left: 2%; } }
+@keyframes next { to {right: 2%; } }
+.slider .btn.prev {
+    left: 3%;
+    animation: previous .5s linear infinite alternate;
+}
+.slider .btn.next {
+    right: 3%;
+    animation: next .5s linear infinite alternate;
+}
+.slider .radio {
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    column-gap: 10px;
+}
+.slider .radio input {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    box-shadow: 3px 3px 5px #000;
+    position: relative;
+    overflow: hidden;
+}
+.slider .radio input::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #da00ff;
+    box-shadow: inset 0px 0px 2px 4px #fff;
+    border-radius: 50% 0;
+    transition: top .25s linear, transform 1s .35s;
+}
+.slider .radio input:checked::after {
+    top: 0;
+    transform: rotate(360deg);
+}
